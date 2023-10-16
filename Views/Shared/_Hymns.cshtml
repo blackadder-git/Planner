@@ -1,0 +1,8 @@
+﻿@model List<Hymn>
+
+<!-- https://www.learnrazorpages.com/razor-pages/partial-pages -->
+
+@foreach (var item in Model)
+{
+    <option value="@item.Title">@item.Title - page @item.Page</option>
+}

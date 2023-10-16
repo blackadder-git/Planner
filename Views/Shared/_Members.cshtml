@@ -1,0 +1,7 @@
+﻿@model List<Member>
+
+<!-- https://www.learnrazorpages.com/razor-pages/partial-pages -->
+@foreach (var item in Model)
+{
+    <option value="@item.Name">@item.Name</option>
+}

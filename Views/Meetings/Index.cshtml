@@ -1,0 +1,111 @@
+﻿@model IEnumerable<SacramentPlanner.Models.Meeting>
+
+@{
+    ViewData["Title"] = "Meetings";
+}
+
+<h1>Meetings</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <!--th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th-->
+            <th>
+                @Html.DisplayNameFor(model => model.MeetingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Congregation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conducting)
+            </th>
+            <th>
+                Prayers
+            </th>
+            <th>
+                Hymns
+            </th>
+            <th>
+                Speakers
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <!--td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td-->
+             <td data-label="Meeting Date">
+                <h4 class="d-md-none">Meeting Date</h4>
+                @Html.DisplayFor(modelItem => item.MeetingDate)
+            </td data-label="Congregation">
+            <td>
+                <h4 class="d-md-none">Congregation</h4>
+                @Html.DisplayFor(modelItem => item.Congregation)
+            </td>
+            <td data-label="Conducting">
+                <h4 class="d-md-none">Conducting</h4>
+                @Html.DisplayFor(modelItem => item.Conducting)
+            </td>
+            <td data-label="Prayers">
+                <h4 class="d-md-none">Prayers</h4>
+                @Html.DisplayFor(modelItem => item.OpeningPrayer)
+                <br />
+                @Html.DisplayFor(modelItem => item.ClosingPrayer)
+            </td>
+            <td data-label="Hymns">
+                <h4 class="d-md-none">Hymns</h4>
+                @Html.DisplayFor(modelItem => item.OpeningHymn)
+                <br />
+                @Html.DisplayFor(modelItem => item.SacramentHymn)
+                <br />
+                @{
+                    string intermediate = item.IntermediateHymn;
+                    if (intermediate != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.IntermediateHymn)
+                        <br />
+                    }
+                }
+                @Html.DisplayFor(modelItem => item.ClosingHymn)
+            </td>
+            <td data-label="Speakers">
+                <h4 class="d-md-none">Speakers</h4>
+                @{
+                    if (ViewData[item.Id.ToString()] != "none")
+                    {
+                        foreach (var speaker in ViewData[item.Id.ToString()] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                        {
+                            // item.Id.ToString()
+                            <span>@speaker.Name</span><br />
+                        }
+                    }
+                    else
+                    {
+                        <span>No assigned speakers</span>
+                    }
+                }
+            </td>
+            <td data-label="Topic"> 
+                <h4 class="d-md-none">Topic (Optional)</h4>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

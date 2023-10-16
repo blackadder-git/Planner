@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+<div class="row">
+    <div class="col-6">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <audio id="myAudio" controls autoplay>
+            <source src="/audio/@ViewData["audio"]" type="audio/mpeg">
+        </audio>
+    </div>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+</div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/sacrament1.webp" class="d-block w-100" alt="Taking the sacrament">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/sacrament2.webp" class="d-block w-100" alt="Blessing the sacrament">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/sacrament3.webp" class="d-block w-100" alt="Speaking in church">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/sacrament4.webp" class="d-block w-100" alt="Blessing the sacrament">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/sacrament5.webp" class="d-block w-100" alt="Speaking in church">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="text-center">
+    <br />
+    <p>Welcome to our sacrament planner website, the ultimate solution for planning successful sacrament meetings! Whether you're an experienced pro or novice, we're here to help you make it a success.</p>
+    <br />
+    <p>Our website is designed to make sacrament meeting planning easy, efficient, and stress-free.
+    We offer a wide range of tools and resources that you can use to plan your meetings from start to finish.
+    From Hymn selection to speaker count and benediction, we've got you covered.</p>
+    <br />
+    <p>Our team of experienced programmers and web developers is always available to provide you with guidance and support throughout the planning process.
+    We understand every ward is unique, and we work closely with the Bishopric to ensure that our sacrament meeting planner is tailored to your specific needs and requirements.</p>
+    <br />
+    <p>At our sacrament planner website we're committed to providing you with the best possible service and support.
+    We're constantly updating our website with new features and tools to make your sacrament planning experience even better.</p>
+    <br />
+    <p>Thank you for choosing our sacrament planner website. We look forward to working with you and making your sacrament meeting a success!</p>
+</div>

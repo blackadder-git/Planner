@@ -1,0 +1,22 @@
+﻿@model List<Hymn>
+
+<!-- https://www.learnrazorpages.com/razor-pages/partial-pages -->
+
+@foreach (var item in Model)
+{
+    if ((string)ViewData["OpeningHymn"] == item.Title)
+    {
+        <option value="@item.Title" selected>@item.Title - page @item.Page</option>
+    }
+    else
+    {
+        <option value="@item.Title">@item.Title - page @item.Page</option>
+    }
+    /*
+    @foreach (Member item in (List<Member>)@ViewData["Bishopric"])
+    {
+                                <option value="@item.Name">@item.Name</option>
+    }
+    */
+
+}

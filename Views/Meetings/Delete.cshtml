@@ -1,0 +1,138 @@
+﻿@model SacramentPlanner.Models.Meeting
+
+@{
+    ViewData["Title"] = "Delete Meeting";
+}
+
+<h1>Delete Meeting</h1>
+
+<div class="p-5 block" style="border: 1px black solid;">
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h2>
+                @Html.DisplayFor(model => model.Congregation)
+            </h2>
+        </div>
+    </div>
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h3>
+                @{
+                    string date = (Model.MeetingDate).ToString("MMMM dd, yyyy");
+                    <span>@date</span>
+                }
+            </h3>
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-12 text-center">
+            <blockquote class="blockquote">@ViewData["Quote"]</blockquote>
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.Conducting)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.Conducting)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.OpeningHymn)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.OpeningHymn)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.OpeningPrayer)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.OpeningPrayer)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h2>Announcements</h2>
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.SacramentHymn)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.SacramentHymn)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <h2>Aaronic Priesthood will Pass the Sacrament</h2>
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            Speakers
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @{
+                if (ViewData["Speakers"] != "none")
+                {
+                    foreach (var item in ViewData["Speakers"] as IEnumerable<SacramentPlanner.Models.Speaker>)
+                    {
+                        @item.Name @:: @item.Subject
+                        <br />
+                    }
+                }
+                else
+                {
+                    <div>No assigned speakers</div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.ClosingHymn)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.ClosingHymn)
+        </div>
+    </div>
+
+    <div class="row mb-md-4">
+        <div class="col-md-4 d-flex justify-content-end">
+            @Html.DisplayNameFor(model => model.ClosingPrayer)
+        </div>
+        <div class="col-md-4"><hr style="border-top: 1px black dotted"></div>
+        <div class="col-md-4 ps-md-3">
+            @Html.DisplayFor(model => model.ClosingPrayer)
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="form-group d-flex justify-content-center align-content-center">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger me-3" confirm="Are you sure you want to delete this meeting?" />
+            <a asp-action="Index" class="pt-1">Back to List</a>
+        </form>
+    </div>
+</div>

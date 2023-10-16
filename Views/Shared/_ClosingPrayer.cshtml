@@ -1,0 +1,14 @@
+﻿@model List<Member>
+
+<!-- https://www.learnrazorpages.com/razor-pages/partial-pages -->
+@foreach (var item in Model)
+{
+    if ((string)ViewData["ClosingPrayer"] == item.Name)
+    {
+        <option value="@item.Name" selected>@item.Name</option>
+    }
+    else
+    {
+        <option value="@item.Name">@item.Name</option>
+    }
+}

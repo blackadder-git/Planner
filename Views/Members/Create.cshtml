@@ -1,0 +1,36 @@
+﻿@model SacramentPlanner.Models.Member
+
+@{
+    ViewData["Title"] = "Create Member";
+}
+
+<h1>Create Member</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Bishopric" /> @Html.DisplayNameFor(model => model.Bishopric)
+                </label>
+            </div>
+            <div class="row mt-5">
+                <div class="form-group d-flex justify-content-center align-content-center">
+                    <input type="submit" value="Create" class="btn btn-primary me-3" />
+                    <a asp-action="Index" class="pt-1">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
